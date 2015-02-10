@@ -3,12 +3,16 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
+	<definition name="commoner" template="/WEB-INF/layouts/classic2.jsp">
+		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
+	</definition>
+	
 	<definition name="common" template="/WEB-INF/layouts/classic.jsp">
 		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
 	</definition>
 
-	<definition name="index" extends="common">
-		<put-attribute name="title" value="iPalit Home" />
+	<definition name="index" extends="commoner">
+		<put-attribute name="title" value="iPalit" />
 		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
 		<put-attribute name="current" value="index" />
 	</definition>
@@ -25,10 +29,75 @@
 		<put-attribute name="current" value="users" />
 	</definition>
 
-
 	<definition name="user-register" extends="common">
 		<put-attribute name="title" value="User Registration" />
 		<put-attribute name="body" value="/WEB-INF/jsp/user-register.jsp" />
 		<put-attribute name="current" value="register" />
+	</definition>
+	
+	<definition name="login" extends="common">
+		<put-attribute name="title" value="Login Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
+		<put-attribute name="current" value="login" />
+	</definition>
+	
+	<definition name="account" extends="common">
+		<put-attribute name="title" value="User Account" />
+		<put-attribute name="body" value="/WEB-INF/jsp/user-account.jsp" />
+		<put-attribute name="current" value="account" />
+	</definition>
+	
+	<definition name="items" extends="commoner">
+		<put-attribute name="title" value="Items" />
+		<put-attribute name="body" value="/WEB-INF/jsp/items.jsp" />
+		<put-attribute name="current" value="tradables" />
+	</definition>
+	
+	<definition name="item-detail" extends="commoner">
+		<put-attribute name="title" value="Items" />
+		<put-attribute name="body" value="/WEB-INF/jsp/item-detail.jsp" />
+		<put-attribute name="current" value="item-detail" />
+	</definition>
+	
+	<definition name="pubview-user-account" extends="commoner">
+		<put-attribute name="title" value="Public Profile" />
+		<put-attribute name="body" value="/WEB-INF/jsp/pubview-user-account.jsp" />
+		<put-attribute name="current" value="pubview-user-account" />
+	</definition>
+	
+	<definition name="wishlists" extends="commoner">
+		<put-attribute name="title" value="Wishlists" />
+		<put-attribute name="body" value="/WEB-INF/jsp/wishlists.jsp" />
+		<put-attribute name="current" value="wishlists" />
+	</definition>
+	
+	<definition name="wish-detail" extends="commoner">
+		<put-attribute name="title" value="Wishlists" />
+		<put-attribute name="body" value="/WEB-INF/jsp/wish-detail.jsp" />
+		<put-attribute name="current" value="wish-detail" />
+	</definition>
+	
+	<definition name="search" extends="common">
+		<put-attribute name="title" value="Search Result" />
+		<put-attribute name="body" value="/WEB-INF/jsp/search.jsp" />
+		<put-attribute name="current" value="search" />
+	</definition>
+	
+	<definition name="aboutus" extends="common">
+		<put-attribute name="title" value="About Us" />
+		<put-attribute name="body" value="/WEB-INF/jsp/aboutus.jsp" />
+		<put-attribute name="current" value="aboutus" />
+	</definition>
+	
+	<definition name="searchwish" extends="common">
+		<put-attribute name="title" value="Search Result" />
+		<put-attribute name="body" value="/WEB-INF/jsp/searchwish.jsp" />
+		<put-attribute name="current" value="searchwish" />
+	</definition>
+	
+	<definition name="feed" extends="common">
+		<put-attribute name="title" value="Search Result" />
+		<put-attribute name="body" value="/WEB-INF/jsp/pubview-user-account.jsp" />
+		<put-attribute name="current" value="feed" />
 	</definition>
 </tiles-definitions>

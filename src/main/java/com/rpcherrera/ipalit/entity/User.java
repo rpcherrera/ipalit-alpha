@@ -1,50 +1,91 @@
 package com.rpcherrera.ipalit.entity;
 
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
+
+
+
+
+
+import org.hibernate.validator.constraints.Email;
+
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.rpcherrera.ipalit.annotation.UniqueEmail;
+import com.rpcherrera.ipalit.annotation.UniqueUsername;
+
 
 @Entity
+@Table(name= "app_user")
 public class User {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
 	
-	private String fname;
+	@Size(min=3, message="First name must be at	least 3 characters!")
+	private String name;
 	
+	@Size(min=3, message="Last name must be at least 3 characters!")
 	private String lname;
 	
+	@Size(min=3, message="Username must be at least 4 characters!")
+	@Column(unique = true)
+	@UniqueUsername(message="Such username already exists!")
 	private String username;
 	
+	@Size(min=1, message="Invalid email format!")
+	@Email(message="Invalid email format!")
+	@UniqueEmail(message="This email is already registered")
 	private String email;
 	
+	@Size(min=6, message="Password must be at least 6 characters!")
 	private String password;
 	
-	private int contactnum;
+	@Size(min=11, max=11, message="Cellular number must be exactly 11 digits!")
+	private String contactnum;
 	
 	@ManyToMany
 	@JoinTable
 	private List<Role> roles;
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch=FetchType.EAGER)
 	private List<Blog> blogs;
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch=FetchType.EAGER)
+	private List<Wishlist> wish;
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
+	private List<Feedback> feedbacks;
+	
+	private boolean enabledEh;
+	
+	@DateTimeFormat(pattern="MM/dd/yyyy")
+	@Temporal(TemporalType.DATE)
+	@Column(name="date_joined")
+	private Date dateJoined;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getFname() {
-		return fname;
+	public String getName() {
+		return name;
 	}
 
 	public String getLname() {
@@ -63,8 +104,36 @@ public class User {
 		return password;
 	}
 
-	public void setFname(String fname) {
-		this.fname = fname;
+	public String getContactnum() {
+		return contactnum;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public List<Blog> getBlogs() {
+		return blogs;
+	}
+
+	public List<Wishlist> getWish() {
+		return wish;
+	}
+
+	public boolean isEnabledEh() {
+		return enabledEh;
+	}
+
+	public Date getDateJoined() {
+		return dateJoined;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setLname(String lname) {
@@ -83,27 +152,36 @@ public class User {
 		this.password = password;
 	}
 
-	public int getContactnum() {
-		return contactnum;
-	}
-
-	public void setContactnum(int contactnum) {
+	public void setContactnum(String contactnum) {
 		this.contactnum = contactnum;
-	}
-
-	public List<Role> getRoles() {
-		return roles;
 	}
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
 
-	public List<Blog> getBlogs() {
-		return blogs;
-	}
-
 	public void setBlogs(List<Blog> blogs) {
 		this.blogs = blogs;
 	}
+
+	public void setWish(List<Wishlist> wish) {
+		this.wish = wish;
+	}
+
+	public void setEnabledEh(boolean enabledEh) {
+		this.enabledEh = enabledEh;
+	}
+
+	public void setDateJoined(Date dateJoined) {
+		this.dateJoined = dateJoined;
+	}
+
+	public List<Feedback> getFeedbacks() {
+		return feedbacks;
+	}
+
+	public void setFeedbacks(List<Feedback> feedbacks) {
+		this.feedbacks = feedbacks;
+	}
+	
 }

@@ -1,0 +1,36 @@
+body {
+	background-color: #1BA39C;
+}
+.fields {
+	width: 515px;
+	min-height: 450px;
+	overflow: hidden;
+	background-color: #F9BF3B;
+	float: left;
+}
+
+#form {
+	width: 480px;
+	min-height: 400px;
+	overflow: hidden;
+	margin-left: 15px;
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+
+#imagecontainer{
+	width: 500px;
+	height: 400px;
+	float: left;
+	margin-top: 15px;
+}
+
+#gadgetimg {
+	width: 620px;
+	height: 480px;
+	margin-left: 20px;
+}
+
+label {
+	margin-left: 10px;
+}

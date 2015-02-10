@@ -1,0 +1,10 @@
+body {
+	background-color: #FFFFFF;
+}
+
+.detailsContainer {
+	width: 670px;
+	height: auto;
+	margin-right: 70px;
+	float: right;
+}

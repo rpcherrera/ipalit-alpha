@@ -5,5 +5,7 @@
 		<class>com.rpcherrera.ipalit.entity.Role</class>
 		<class>com.rpcherrera.ipalit.entity.Blog</class>
 		<class>com.rpcherrera.ipalit.entity.Item</class>
+		<class>com.rpcherrera.ipalit.entity.Wishlist</class>
+		<class>com.rpcherrera.ipalit.entity.Feedback</class>
 	</persistence-unit>
 </persistence>

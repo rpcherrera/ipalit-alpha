@@ -1,0 +1,24 @@
+body {
+  background-color: #E74C3C;
+}
+.logincontainer {
+  height: 600px;
+  margin-top: 20px;
+  position:relative;
+}
+#loginForm {
+  width: 500px;
+  height: 400px;
+  margin-top: 70px;
+  position:relative;
+  z-index:10;
+}
+
+#image{
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  position:absolute;
+}
+
